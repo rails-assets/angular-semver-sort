@@ -19,16 +19,20 @@ angular.module('yourApp', ['semverSort']);
 ### semverSort()
 
 ```html
-<ol ng-repeat="version in gem.versions | semverSort">
-  <li ng-bind="version">
+<ol>
+  <li ng-repeat="version in gem.versions | semverSort">
+    {{ version }}
+  </li>
 </ol>
 ```
 
 ### semverSort(property)
 
 ```html
-<ol ng-repeat="gem in gems | semverSort:'version'">
-  <li ng-bind="gem.version">
+<ol>
+  <li ng-repeat="gem in gems | semverSort:'version'">
+    {{ gem.version }}
+  </li>
 </ol>
 ```
 
@@ -45,6 +49,6 @@ grunt test
 
 ## Credits
 
-The filter is **includes** the browser build of [node-semver](https://github.com/isaacs/node-semver), the BSD-licensed semver parser created by Isaac Z. Schlueter.
+The filter **includes** the browser build of [node-semver](https://github.com/isaacs/node-semver), the BSD-licensed semver parser created by Isaac Z. Schlueter.
 
 Made for [Rails Assets](https://rails-assets.org).
