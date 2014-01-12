@@ -2,6 +2,14 @@
 
 > Angular.js filter for ordering collections by [semantic version number](http://semver.org).
 
+## Installation
+
+```sh
+bower install angular-semver-sort
+```
+
+If you’re building a Rails app, you can easily use it with [Rails Assets](https://rails-assets.org)—this package is available as `rails-assets-angular-semver-sort`.
+
 ## Usage
 
 ### semverSort()
@@ -18,6 +26,17 @@
 <ol ng-repeat="gem in gems | semverSort:'version'">
   <li ng-bind="gem.version">
 </ol>
+```
+
+## Development
+
+Clone the repository, then:
+
+```sh
+npm install
+
+grunt
+grunt test
 ```
 
 ## Credits
