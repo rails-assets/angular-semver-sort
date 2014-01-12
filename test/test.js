@@ -1,4 +1,4 @@
-describe('Filter: semverSort', function () {
+describe('Filter: semverSort', function() {
   var semverSort;
 
   beforeEach(function() {

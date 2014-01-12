@@ -11,5 +11,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-karma": "~0.6.2",
     "should": "~2.1.1"
+  },
+  "scripts": {
+    "preinstall": "npm install -g grunt-cli bower && bower install",
+    "test": "grunt test:ci"
   }
 }

@@ -5,8 +5,9 @@
   "main": "angular-semver-sort.js",
   "ignore": [
     ".gitignore",
-    "package.json",
+    ".travis.yml",
     "Gruntfile.js",
+    "package.json"
   ],
   "dependencies": {
     "angular": "~1.2.8"

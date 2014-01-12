@@ -1,4 +1,4 @@
-# angular-semver-sort
+# angular-semver-sort [![Build Status](https://travis-ci.org/monterail/angular-semver-sort.png)](https://travis-ci.org/monterail/angular-semver-sort)
 
 > Angular.js filter for ordering collections by [semantic version number](http://semver.org).
 
