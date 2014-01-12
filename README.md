@@ -12,6 +12,10 @@ If you’re building a Rails app, you can easily use it with [Rails Assets](http
 
 ## Usage
 
+```js
+angular.module('yourApp', ['semverSort']);
+```
+
 ### semverSort()
 
 ```html
