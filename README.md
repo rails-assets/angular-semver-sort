@@ -16,7 +16,7 @@ If you’re building a Rails app, you can easily use it with [Rails Assets](http
 angular.module('yourApp', ['semverSort']);
 ```
 
-### semverSort()
+### semverSort
 
 ```html
 <ol>
@@ -26,11 +26,30 @@ angular.module('yourApp', ['semverSort']);
 </ol>
 ```
 
-### semverSort(property)
+### semverSort:property
 
 ```html
 <ol>
   <li ng-repeat="gem in gems | semverSort:'version'">
+    {{ gem.version }}
+  </li>
+</ol>
+
+### semverReverseSort
+
+```html
+<ol>
+  <li ng-repeat="version in gem.versions | semverReverseSort">
+    {{ version }}
+  </li>
+</ol>
+```
+
+### semverReverseSort:property
+
+```html
+<ol>
+  <li ng-repeat="gem in gems | semverReverseSort:'version'">
     {{ gem.version }}
   </li>
 </ol>
