@@ -1057,4 +1057,10 @@ if (typeof define === 'function' && define.amd)
       });
     };
   }
+]).filter('semverReverseSort', [
+  '$filter', function($filter) {
+    return function(collection, prop) {
+      return $filter('semverSort')(collection, prop).slice(0).reverse();
+    };
+  }
 ]);
