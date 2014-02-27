@@ -34,6 +34,7 @@ angular.module('yourApp', ['semverSort']);
     {{ gem.version }}
   </li>
 </ol>
+```
 
 ### semverReverseSort
 
