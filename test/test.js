@@ -25,9 +25,19 @@ describe('Filter: semverSort', function() {
   describe('given an array of objects with the property being a semver string', function() {
     it('should return the array of the same objects sorted by the version number in the given property', function() {
       semverSort([
-        '12.4.5', '12.10.5', '1.2.5', '0.10.1', '0.2.1', '1.1.1'
-      ]).should.be.an.Array.with.lengthOf(6).and.be.eql([
-        '0.2.1', '0.10.1', '1.1.1', '1.2.5', '12.4.5', '12.10.5'
+        { name: 'A', version: '12.4.5' },
+        { name: 'B', version: '12.10.5' },
+        { name: 'C', version: '1.2.5' },
+        { name: 'D', version: '0.10.1' },
+        { name: 'E', version: '0.2.1' },
+        { name: 'F', version: '1.1.1' }
+      ], 'version').should.be.an.Array.with.lengthOf(6).and.be.eql([
+        { name: 'E', version: '0.2.1' },
+        { name: 'D', version: '0.10.1' },
+        { name: 'F', version: '1.1.1' },
+        { name: 'C', version: '1.2.5' },
+        { name: 'A', version: '12.4.5' },
+        { name: 'B', version: '12.10.5' }
       ]);
     });
   });
