@@ -4,8 +4,10 @@
   "private": true,
   "author": "Dominik Porada",
   "license": "BSD",
+  "dependencies": {
+    "semver": "~2.2.1"
+  },
   "devDependencies": {
-    "semver": "~2.2.1",
     "grunt": "~0.4.2",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-watch": "~0.5.3",
