@@ -1,4 +1,4 @@
-[![Release](http://img.shields.io/github/release/monterail/angular-semver-sort.svg)](https://github.com/monterail/angular-semver-sort/releases) [![Build Status](http://img.shields.io/travis/monterail/angular-semver-sort.svg)](https://travis-ci.org/monterail/angular-semver-sort) [![Dependency Status](http://img.shields.io/gemnasium/angular-semver-sort.svg)](https://gemnasium.com/monterail/angular-semver-sort)
+[![Release](http://img.shields.io/github/release/monterail/angular-semver-sort.svg)](https://github.com/monterail/angular-semver-sort/releases) [![Build Status](http://img.shields.io/travis/monterail/angular-semver-sort.svg)](https://travis-ci.org/monterail/angular-semver-sort) [![Dependency Status](http://img.shields.io/gemnasium/monterail/angular-semver-sort.svg)](https://gemnasium.com/monterail/angular-semver-sort)
 
 # angular-semver-sort
 
