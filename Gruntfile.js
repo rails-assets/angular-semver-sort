@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.initConfig({
@@ -25,11 +24,6 @@ module.exports = function(grunt) {
       }
     },
 
-    watch: {
-      files: ['src/**/*', 'test/**/*'],
-      tasks: ['concat', 'karma:continuous']
-    },
-
     karma: {
       options: {
         files: [
@@ -46,7 +40,7 @@ module.exports = function(grunt) {
       test: {
         browsers: ['PhantomJS', 'Chrome', 'Firefox']
       },
-      continuous: {
+      ci: {
         browsers: ['PhantomJS']
       }
     }
@@ -54,5 +48,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['concat']);
   grunt.registerTask('test', ['karma:test']);
-  grunt.registerTask('test:ci', ['concat', 'karma:continuous']);
+  grunt.registerTask('test:ci', ['concat', 'karma:ci']);
 };

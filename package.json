@@ -8,10 +8,10 @@
     "semver": "2.3.0"
   },
   "devDependencies": {
+    "karma": "~0.12.16",
     "grunt": "~0.4.2",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-karma": "~0.6.2",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-karma": "~0.8.3",
     "should": "~2.1.1"
   },
   "scripts": {
