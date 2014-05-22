@@ -1,6 +1,5 @@
 {
   "name": "angular-semver-sort",
-  "version": "0.2.0",
   "author": "Dominik Porada",
   "main": "angular-semver-sort.js",
   "ignore": [
