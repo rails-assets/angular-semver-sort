@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Dominik Porada']
   spec.email         = ['dominik@porada.co']
   spec.summary       = 'angular-semver-sort packaged for Rails assets pipeline'
-  spec.homepage      = 'https://github.com/monterail/angular-semver-sort'
+  spec.homepage      = 'https://github.com/rails-assets/angular-semver-sort'
   spec.license       = 'BSD'
   spec.files         = `git ls-files`.split($/)
   spec.require_paths = ['lib']
