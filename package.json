@@ -5,7 +5,7 @@
   "author": "Dominik Porada",
   "license": "BSD",
   "dependencies": {
-    "semver": "~2.2.1"
+    "semver": "2.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
