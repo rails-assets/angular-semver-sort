@@ -1,8 +1,12 @@
 ;angular.module('semverSort', []).factory('semverSortArrayHelpers', function() {
   'use strict';
 
+  var clone = function(collection) {
+    return (collection || []).slice(0);
+  };
+
   var sortAlphabetically = function(collection, prop) {
-    var items = collection.slice(0);
+    var items = clone(collection);
     return !prop ? items.sort() : items.sort(function(A, B) {
       var a = A[prop], b = B[prop];
       if ( a > b ) return 1;
@@ -12,10 +16,11 @@
   };
 
   var reverse = function(collection) {
-    return collection.slice(0).reverse();
+    return clone(collection).reverse();
   };
 
   return {
+    clone: clone,
     sortAlphabetically: sortAlphabetically,
     reverse: reverse
   };
@@ -35,12 +40,14 @@
       return _.sortAlphabetically;
     }
 
+    var isItemValid = function(item) {
+      return semver.valid(item, true);
+    };
+
     var areItemsValid = function(collection, prop) {
-      var items = !prop ? collection : collection.map(function(item) {
-        return item[prop];
-      });
-      return items.every(function(item) {
-        return semver.valid(item, true);
+      if ( !collection ) return false;
+      return !prop ? collection.every(isItemValid) : collection.every(function(item) {
+        return isItemValid(item[prop]);
       });
     };
 
@@ -50,7 +57,7 @@
         return _.sortAlphabetically(collection, prop);
       }
 
-      var items = collection.slice(0);
+      var items = _.clone(collection);
       return !prop ? semver.sort(items, true) : items.sort(function(A, B) {
         return semver.compare(A[prop], B[prop], true);
       });

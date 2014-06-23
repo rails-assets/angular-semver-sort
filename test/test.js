@@ -12,6 +12,18 @@ describe('Filter: semverSort', function() {
     semverSort.should.be.a.Function;
   });
 
+  describe('given undefined', function() {
+    it('should not throw', function() {
+      (function() {
+        semverSort();
+      }).should.not.throw();
+    });
+
+    it('should return an empty array', function() {
+      semverSort().should.be.an.Array.with.lengthOf(0);
+    });
+  });
+
   describe('given an array of semver strings', function() {
     it('should return the array of strings sorted by version number', function() {
       semverSort([
@@ -101,6 +113,18 @@ describe('Filter: semverReverseSort', function() {
 
   it('should be a function', function() {
     semverReverseSort.should.be.a.Function;
+  });
+
+  describe('given undefined', function() {
+    it('should not throw', function() {
+      (function() {
+        semverReverseSort();
+      }).should.not.throw();
+    });
+
+    it('should return an empty array', function() {
+      semverReverseSort().should.be.an.Array.with.lengthOf(0);
+    });
   });
 
   describe('given an array of semver strings', function() {
