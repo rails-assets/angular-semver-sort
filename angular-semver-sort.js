@@ -1043,8 +1043,30 @@ if (typeof define === 'function' && define.amd)
   semver = {}
 );
 
-;angular.module('semverSort', []).filter('semverSort', [
-  '$window', '$log', function($window, $log) {
+;angular.module('semverSort', []).factory('semverSortArrayHelpers', function() {
+  'use strict';
+
+  var sortAlphabetically = function(collection, prop) {
+    var items = collection.slice(0);
+    return !prop ? items.sort() : items.sort(function(A, B) {
+      var a = A[prop], b = B[prop];
+      if ( a > b ) return 1;
+      if ( a < b ) return -1;
+      return 0;
+    });
+  };
+
+  var reverse = function(collection) {
+    return collection.slice(0).reverse();
+  };
+
+  return {
+    sortAlphabetically: sortAlphabetically,
+    reverse: reverse
+  };
+
+}).filter('semverSort', [
+  '$window', '$log', 'semverSortArrayHelpers', function($window, $log, _) {
     'use strict';
 
     var semver = $window.semver;
@@ -1053,19 +1075,9 @@ if (typeof define === 'function' && define.amd)
     var WARNING_UNAVAILABLE = 'Semver library is unvailable. ' + WARNING_FALLBACK;
     var WARNING_NONSEMVER = 'This collection contains non-semver strings. ' + WARNING_FALLBACK;
 
-    var sortAlphabetically = function(collection, prop) {
-      var items = collection.slice(0);
-      return !prop ? items.sort() : items.sort(function(A, B) {
-        var a = A[prop], b = B[prop];
-        if ( a > b ) return 1;
-        if ( a < b ) return -1;
-        return 0;
-      });
-    };
-
     if ( !(semver && 'SEMVER_SPEC_VERSION' in semver) ) {
       $log.warn(WARNING_UNAVAILABLE);
-      return sortAlphabetically;
+      return _.sortAlphabetically;
     }
 
     var areItemsValid = function(collection, prop) {
@@ -1080,7 +1092,7 @@ if (typeof define === 'function' && define.amd)
     return function(collection, prop) {
       if ( !areItemsValid(collection, prop) ) {
         $log.warn(WARNING_NONSEMVER);
-        return sortAlphabetically(collection, prop);
+        return _.sortAlphabetically(collection, prop);
       }
 
       var items = collection.slice(0);
@@ -1090,9 +1102,11 @@ if (typeof define === 'function' && define.amd)
     };
   }
 ]).filter('semverReverseSort', [
-  '$filter', function($filter) {
+  '$filter', 'semverSortArrayHelpers', function($filter, _) {
+    'use strict';
+
     return function(collection, prop) {
-      return $filter('semverSort')(collection, prop).slice(0).reverse();
+      return _.reverse($filter('semverSort')(collection, prop));
     };
   }
 ]);
