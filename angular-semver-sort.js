@@ -1,5 +1,5 @@
 /*!
-  angular-semver-sort v0.2.2 <http://git.io/angular-semver>
+  angular-semver-sort v0.2.3 <http://git.io/angular-semver>
   @includes <http://git.io/semver> by Isaac Z. Schlueter
   @license BSD
 */
