@@ -5,7 +5,7 @@
     return (collection || []).slice(0);
   };
 
-  var sortAlphabetically = function(collection, prop) {
+  var sort = function(collection, prop) {
     var items = clone(collection);
     return !prop ? items.sort() : items.sort(function(A, B) {
       var a = A[prop], b = B[prop];
@@ -21,7 +21,7 @@
 
   return {
     clone: clone,
-    sortAlphabetically: sortAlphabetically,
+    sort: sort,
     reverse: reverse
   };
 
@@ -37,7 +37,7 @@
 
     if ( !(semver && 'SEMVER_SPEC_VERSION' in semver) ) {
       $log.warn(WARNING_UNAVAILABLE);
-      return _.sortAlphabetically;
+      return _.sort;
     }
 
     var isItemValid = function(item) {
@@ -54,7 +54,7 @@
     return function(collection, prop) {
       if ( !areItemsValid(collection, prop) ) {
         $log.warn(WARNING_NONSEMVER);
-        return _.sortAlphabetically(collection, prop);
+        return _.sort(collection, prop);
       }
 
       var items = _.clone(collection);
