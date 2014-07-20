@@ -28,7 +28,7 @@ describe('Filter: semverSort', function() {
     it('should return the array of strings sorted by version number', function() {
       semverSort([
         '12.4.5', '12.10.5', '1.2.5', '0.10.1', '0.2.1', '1.1.1'
-      ]).should.be.an.Array.with.lengthOf(6).and.be.eql([
+      ]).should.be.eql([
         '0.2.1', '0.10.1', '1.1.1', '1.2.5', '12.4.5', '12.10.5'
       ]);
     });
@@ -43,7 +43,7 @@ describe('Filter: semverSort', function() {
         { name: 'D', version: '0.10.1' },
         { name: 'E', version: '0.2.1' },
         { name: 'F', version: '1.1.1' }
-      ], 'version').should.be.an.Array.with.lengthOf(6).and.be.eql([
+      ], 'version').should.be.eql([
         { name: 'E', version: '0.2.1' },
         { name: 'D', version: '0.10.1' },
         { name: 'F', version: '1.1.1' },
@@ -66,7 +66,7 @@ describe('Filter: semverSort', function() {
     it('should return the array of strings sorted alphabetically', function() {
       semverSort([
         '1.2.1', '1.10.1', 'Ć', 'Ą'
-      ]).should.be.an.Array.with.lengthOf(4).and.be.eql([
+      ]).should.be.eql([
         '1.10.1', '1.2.1', 'Ą', 'Ć'
       ]);
     });
@@ -91,7 +91,7 @@ describe('Filter: semverSort', function() {
         { name: 'B', version: '1.10.1' },
         { name: 'C', version: 'Ć' },
         { name: 'D', version: 'Ą' }
-      ], 'version').should.be.an.Array.with.lengthOf(4).and.be.eql([
+      ], 'version').should.be.eql([
         { name: 'B', version: '1.10.1' },
         { name: 'A', version: '1.2.1' },
         { name: 'D', version: 'Ą' },
@@ -131,7 +131,7 @@ describe('Filter: semverReverseSort', function() {
     it('should return the array of strings sorted by version number in reverse order', function() {
       semverReverseSort([
         '12.4.5', '12.10.5', '1.2.5', '0.10.1', '0.2.1', '1.1.1'
-      ]).should.be.an.Array.with.lengthOf(6).and.be.eql([
+      ]).should.be.eql([
         '12.10.5', '12.4.5', '1.2.5', '1.1.1', '0.10.1', '0.2.1'
       ]);
     });
@@ -146,7 +146,7 @@ describe('Filter: semverReverseSort', function() {
         { name: 'D', version: '0.10.1' },
         { name: 'E', version: '0.2.1' },
         { name: 'F', version: '1.1.1' }
-      ], 'version').should.be.an.Array.with.lengthOf(6).and.be.eql([
+      ], 'version').should.be.eql([
         { name: 'B', version: '12.10.5' },
         { name: 'A', version: '12.4.5' },
         { name: 'C', version: '1.2.5' },
@@ -169,7 +169,7 @@ describe('Filter: semverReverseSort', function() {
     it('should return the array of strings sorted in reverse alphabetical order', function() {
       semverReverseSort([
         '1.2.1', '1.10.1', 'Ć', 'Ą'
-      ]).should.be.an.Array.with.lengthOf(4).and.be.eql([
+      ]).should.be.eql([
         'Ć', 'Ą', '1.2.1', '1.10.1'
       ]);
     });
@@ -194,7 +194,7 @@ describe('Filter: semverReverseSort', function() {
         { name: 'B', version: '1.10.1' },
         { name: 'C', version: 'Ć' },
         { name: 'D', version: 'Ą' }
-      ], 'version').should.be.an.Array.with.lengthOf(4).and.be.eql([
+      ], 'version').should.be.eql([
         { name: 'C', version: 'Ć' },
         { name: 'D', version: 'Ą' },
         { name: 'A', version: '1.2.1' },
